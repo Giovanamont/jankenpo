@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JonKenPo.View.JonKenPoView"
+             Title="JonKenPoView">
+    <VerticalStackLayout
+        HorizontalOptions="Start"
+       
+        >
+       
+        <Label 
+            Text="JanKenPo"
+            TextColor="Purple" 
+            FontSize="50"
+            FontAttributes="Bold"
+            Padding="40,40"
+            HorizontalOptions="StartAndExpand" 
+             />
+       
+        <Label 
+           Padding="40,40,0,5"
+            Text="NOme: "
+            TextColor="LightGreen"
+            FontAttributes="Bold"
+            FontSize="20"
+            HorizontalOptions="Fill" 
+             />
+
+        <Entry
+           
+           
+            Text="{Binding Nome}"
+              WidthRequest="200"
+            HeightRequest="20"
+             FontSize="12"
+
+            />
+        
+
+        <Picker
+         
+         TitleColor="LightGreen"
+         WidthRequest="300"
+         Title="Escolha">
+            <Picker.ItemsSource ItemsSource="{Binding Jogador}">
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Pedra</x:String>
+                    <x:String>Papel</x:String>
+                    <x:String>Tesoura</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+
+        <Button
+        x:Name="jogar"
+        TextColor="White"
+        FontSize="Title"
+        Margin="30"
+        BackgroundColor="Purple"
+        FontAttributes="None"
+        WidthRequest="150"
+        Text="Jogar" 
+        Command="{Binding MakeChoiceCommand}"
+        
+        />
+        <HorizontalStackLayout>
+            <Label 
+            Text="{Binding Nome}"
+            FontSize="20"
+            Margin="55,-30,0,0"
+            TextColor="purple"
+            FontAttributes="None"
+      />
+            <Label
+                Text=" X "
+                FontSize="30"
+                Margin="0,-30,0,0"
+                TextColor="Lightgreen" 
+                />
+            
+            
+            <Label 
+            Text=" Máquina"
+            FontSize="20"
+            Margin="0,-30,0,0"
+            TextColor="Purple"
+            FontAttributes="None"
+      />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+                <Label 
+            Text="0"
+            FontSize="30"
+             TextColor="LightGreen"
+            Margin="150,0,0,0"
+      />
+                <Label 
+            Text=" /"
+            FontSize="30"
+            TextColor="Purple"
+            
+      />                
+                
+                <Label 
+            Text="0"
+            TextColor="LightGreen"
+            FontSize="30"
+            
+      />
+            </HorizontalStackLayout>
+           
+        <Label 
+            Text="{Binding DetermineWinner}"
+            TextColor="Black"
+            FontSize="30"
+             FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Margin="0,30,0,50"
+            
+      />
+        <HorizontalStackLayout>
+            <Label        
+            Text="vencedor:"
+            TextColor="LightGreen"
+            FontSize="30" 
+            FontAttributes="Bold"
+            Margin="10,0,0,0"
+      />
+            <Label 
+            Text="{Binding DetermineWinner}"
+            FontSize="30"
+           Margin="50,0,0,0"
+      />            
+            
+        </HorizontalStackLayout>
+            </VerticalStackLayout>
+</ContentPage>
